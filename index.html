@@ -3,18 +3,19 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Voblake</title>
+	<link rel="shortcut icon" href="img/favicon.png" type="image/png">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 	<header class="header">
 		<nav class="navigation header__nav">
 			<ul class="navigation__list">
-				<li class="navigation__item"><a class="navigation__link" href="">О нас</a></li>
-				<li class="navigation__item"><a class="navigation__link" href="">Галерея</a></li>
-				<li class="navigation__item"><a class="navigation__link" href="">Меню</a></li>
-				<li class="navigation__item"><a class="navigation__link" href="">Карта заведения</a></li>
-				<li class="navigation__item"><a class="navigation__link" href="">Как добраться</a></li>
-				<li class="navigation__item"><a class="navigation__link" href="">Контакты</a></li>
+				<li class="navigation__item"><a class="navigation__link navigation__link--about" href="">О нас</a></li>
+				<li class="navigation__item"><a class="navigation__link navigation__link--gallery" href="">Галерея</a></li>
+				<li class="navigation__item"><a class="navigation__link navigation__link--menu" href="">Меню</a></li>
+				<li class="navigation__item"><a class="navigation__link navigation__link--table" href="">Карта заведения</a></li>
+				<li class="navigation__item"><a class="navigation__link navigation__link--location" href="">Как добраться</a></li>
+				<li class="navigation__item"><a class="navigation__link navigation__link--contacts" href="">Контакты</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -40,8 +41,11 @@
 			<h2 class="visually-hidden">О нас</h2>
 			<ul class="staff__list">
 				<li class="staff__item">
-					<div class="staff__flex-layout flex-layout--right">
-						<img class="staff__image" src="img/michael-nikanorov.jpg" alt="Михаил Никаноров" width="180" height="180">
+					<div class="staff__flex-layout flex-layout--left">
+						<div class="staff__image-container">
+							<img class="staff__image" src="img/michael-nikanorov.jpg" alt="Михаил Никаноров" width="180" height="180">
+						</div>
+						<a href="https://vk.com/miknikanorov" class="staff__social-link" aria-label="ссылка на профиль Вконтакте" target="_blank"></a>
 					</div>
 					<div class="staff__flex-layout flex-layout--right">
 						<h3 class="staff__name">Михаил Никаноров</h3>
@@ -49,38 +53,63 @@
 					</div>
 				</li>
 				<li class="staff__item">
-					<img class="staff__image" src="img/maxim-filatov.jpg" alt="Максим Филатов" width="180" height="180">
-					<div class="list--flex-layout">
+					<div class="staff__flex-layout flex-layout--left">
+						<div class="staff__image-container">
+							<img class="staff__image" src="img/maxim-filatov.jpg" alt="Максим Филатов" width="180" height="180">
+						</div>
+						<a href="https://vk.com/waterrfall" class="staff__social-link" aria-label="ссылка на профиль Вконтакте" target="_blank"></a>
+					</div>
+					<div class="staff__flex-layout flex-layout--right">
 						<h3 class="staff__name">Максим Филатов</h3>
 						<p class="staff__description">Как самый молодой член нашей команды является мастером и вдохновителем новой школы кальянного искусства. Ведущий рубрики «Mix by Max” нашего инстаграмма.</p>
 					</div>
 				</li>
 				<li class="staff__item">
-					<img class="staff__image" src="img/sergei-ozerov.jpg" alt="Сергей Озеров" width="180" height="180">
-					<div class="list--flex-layout">
+					<div class="staff__flex-layout flex-layout--left">
+						<div class="staff__image-container">
+							<img class="staff__image" src="img/sergei-ozerov.jpg" alt="Сергей Озеров" width="180" height="180">
+						</div>
+						<a href="https://vk.com/id1384320" class="staff__social-link" aria-label="ссылка на профиль Вконтакте" target="_blank"></a>
+					</div>
+					<div class="staff__flex-layout flex-layout--right">
 						<h3 class="staff__name">Сергей Озеров</h3>
 						<p class="staff__description">Гуру инстаграмма и кальянщик-терминатор способный спать по 2 часа в сутки. В обновленной версии с полуслова распознает, какой кальян подойдет именно вам и в точности воссоздает его в кротчайшие сроки.</p>
 					</div>
 				</li>
 				<li class="staff__item">
-					<img class="staff__image" src="img/alexei-zaycev.jpg" alt="Алексей Зайцев" width="180" height="180">
-					<div class="list--flex-layout">
+					<div class="staff__flex-layout flex-layout--left">
+						<div class="staff__image-container">
+							<img class="staff__image" src="img/alexei-zaycev.jpg" alt="Алексей Зайцев" width="180" height="180">
+						</div>
+						<a href="https://vk.com/mr.gazzerv8" class="staff__social-link" aria-label="ссылка на профиль Вконтакте" target="_blank"></a>
+					</div>
+					<div class="staff__flex-layout flex-layout--right">
 						<h3 class="staff__name">Алексей Зайцев</h3>
 						<p class="staff__description">Практикует создание самых крепких кальянов нашего заведения. Обладатель невероятных габаритов и необъятной души, которую он вкладывает в каждую чашку. Лицо нашего заведения на просторах Youtube.</p>
 					</div>
 				</li>
 				<li class="staff__item">
-					<img class="staff__image" src="img/eugene-nebolsin.jpg" alt="Евгений Небольсин" width="180" height="180">
-					<div class="list--flex-layout">
+					<div class="staff__flex-layout flex-layout--left">
+						<div class="staff__image-container">
+							<img class="staff__image" src="img/eugene-nebolsin.jpg" alt="Евгений Небольсин" width="180" height="180">
+						</div>
+						<a href="https://vk.com/eugene.epta" class="staff__social-link" aria-label="ссылка на профиль Вконтакте" target="_blank"></a>
+					</div>
+					<div class="staff__flex-layout flex-layout--right">
 						<h3 class="staff__name">Евгений Небольсин</h3>
 						<p class="staff__description">Своими неординарными кальянами этот мастер заставляет дамские сердца трепетать в унисон с бульканьем кальяна. Ходят легенды, что каждый раз, когда он забивает вкусный кальян, на его бороде прибавляется по волоску.</p>
 					</div>
 				</li>
 				<li class="staff__item">
-					<img class="staff__image" src="img/anton-pochernikov.jpg" alt="Антон Почерников" width="180" height="180">
-					<div class="list--flex-layout">
+					<div class="staff__flex-layout flex-layout--left">
+						<div class="staff__image-container">
+							<img class="staff__image" src="img/anton-pochernikov.jpg" alt="Антон Почерников" width="180" height="180">
+						</div>
+						<a href="https://vk.com/akpochernikov" class="staff__social-link" aria-label="ссылка на профиль Вконтакте" target="_blank"></a>
+					</div>
+					<div class="staff__flex-layout flex-layout--right">
 						<h3 class="staff__name">Антон Почерников</h3>
-						<p class="staff__description">Человек, который сможет создать уютную ламповую атмосферу везде, где есть гитара и кальян, воздействуя не только на ваши вкусовые рецепторы, но и на слуховые ощущения. Главным образом причастен к регулярной организации вечеров живой музыки Voblake.</p>
+						<p class="staff__description">Человек, который сможет создать уютную ламповую атмосферу везде, где есть гитара и кальян, воздействуя не только на ваши вкусовые рецепторы, но и на слуховые ощущения.</p>
 					</div>
 				</li>
 			</ul>
