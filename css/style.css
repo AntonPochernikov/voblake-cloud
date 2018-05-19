@@ -1,3 +1,11 @@
+body {
+	padding: 0;
+	margin: 0;
+
+	background-color: #fff;
+	color: #333;
+}
+
 .visually-hidden {
   position: absolute;
   clip: rect(0 0 0 0);
@@ -5,6 +13,7 @@
   height: 1px;
   margin: -1px;
 }
+
 
 /*============================
 	header
@@ -17,7 +26,6 @@
 	margin: 20px auto;
 	box-sizing: border-box;
 }
-
 
 /*  navigation  */
 .navigation {
@@ -44,14 +52,25 @@
 	box-sizing: border-box;
 
 	background-color: #c5c5c5;
-	border-radius: 0px;
+}
+
+/*  переключаемся на бургерное меню  */
+@media (max-width: 768px) {
+	.navigation__list {
+		flex-direction: column;
+		padding: 48px;
+	}
+	.navigation__item {
+		/*  этот отступ нужен, чтобы мы видели outline каждого элемента навигации в фокусе */
+		margin-bottom: 3px;
+	}
 }
 
 .navigation__link {
 	position: relative;
 	display: block;
 	padding: 10px 15px;
-	padding-left: 44px;
+	padding-left: 40px;
 
 	font-weight: 700;
 	font-size: 18px;
@@ -70,15 +89,19 @@
 	background-color: #f04040;
 }
 
-.navigation__link:active {
+.navigation__link:active, {
 	background-color: #cd5c5c;
+}
+
+.navigation__link:focus {
+	outline: 3px solid #cd5c5c;
 }
 
 .navigation__link::before {
 	content: "";
 	position: absolute;
 	top: 10px;
-	left: 10px;
+	left: 8px;
 
 	display: block;
 	width: 24px;
@@ -137,6 +160,18 @@
 	background-image: url(../img/contacts-hover.svg);
 }
 
+/*  слегка ужимаем навигацию, чтобы сохранить её в одной строке до переключения на бургерное меню  */
+@media (max-width: 960px) {
+	.navigation__link {
+		padding-left: 32px;
+		font-size: 16px;
+	}
+	.navigation__link::before {
+		left: 4px;
+	}
+}
+
+
 /*============================
 	promo-slide
 ============================*/
@@ -156,10 +191,21 @@
 
 	background-color: #f04040;
 	background-image:
-	    linear-gradient(35deg, #e5e5e5 30%, transparent 30%),
-		linear-gradient(145deg, #e5e5e5 30%, transparent 30%),
-        linear-gradient(215deg, #e5e5e5 30%, transparent 30%),
-        linear-gradient(325deg, #e5e5e5 30%, transparent 30%);
+	    linear-gradient(35deg, #e5e5e5 28%, transparent 28%),
+		linear-gradient(145deg, #e5e5e5 28%, transparent 28%),
+        linear-gradient(215deg, #e5e5e5 28%, transparent 28%),
+        linear-gradient(325deg, #e5e5e5 28%, transparent 28%);
+}
+
+@media (max-width: 480px) {
+	.promo-slide {
+		background-image:
+	    linear-gradient(35deg, #e5e5e5 22%, transparent 22%),
+		linear-gradient(145deg, #e5e5e5 22%, transparent 22%),
+        linear-gradient(215deg, #e5e5e5 22%, transparent 22%),
+        linear-gradient(325deg, #e5e5e5 22%, transparent 22%);
+	}
+
 }
 
 .promo-slide__welcome {
@@ -188,6 +234,34 @@
 	border-radius: 25px;
 }
 
+@media (max-width: 960px) {
+	.promo-slide__welcome {
+		font-size: 36px;
+		line-height: 40px;
+	}
+
+	.welcome__span {
+		width: 40px;
+		height: 40px;
+	}
+}
+
+@media (max-width: 640px) {
+	.promo-slide__welcome {
+		font-size: 28px;
+		line-height: 32px;
+	}
+
+	.welcome__span {
+		width: 32px;
+		height: 32px;
+	}
+}
+
+@media (max-width: 360px) {
+
+}
+
 .span--space {
 	background-color: transparent;
 }
@@ -202,6 +276,24 @@
 	color: #fffcef;
 }
 
+@media (max-width: 960px) {
+	.promo-slide__logo {
+		font-size: 84px;
+		line-height: 84px;
+	}
+}
+
+@media (max-width: 640px) {
+	.promo-slide__logo {
+		font-size: 64px;
+		line-height: 64px;
+	}
+}
+
+@media (max-width: 360px) {
+	
+}
+
 .promo-slide__logo-tagline {
 	padding: 0;
 	margin: 0;
@@ -211,6 +303,24 @@
 	letter-spacing: 7px;
 	font-style: italic;
 	color: #fffcef;
+}
+
+@media (max-width: 960px) {
+	.promo-slide__logo-tagline {
+		font-size: 24px;
+		line-height: 28px;
+	}
+}
+
+@media (max-width: 640px) {
+	.promo-slide__logo-tagline {
+		font-size: 18px;
+		line-height: 18px;
+	}
+}
+
+@media (max-width: 360px) {
+	
 }
 
 /*============================
@@ -254,7 +364,7 @@
 
 .staff__item {
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	position: relative;
 
 	width: 540px;
@@ -273,7 +383,7 @@
 	width: 300px;
 	height: 0;
 
-	border-bottom: 2px dashed #2d2d44;
+	border-bottom: 2px dashed #333;
 }
 
 .flex-layout--left {
@@ -291,12 +401,17 @@
 	transition: opacity 0.2s ease;
 }
 
-.staff__flex-layout:hover .staff__image-container {
-	opacity: 0.4;
-}
+/*  с помощью focus-within меняем свойства фото при наведении на ссылку соцсети  */
+@media (min-width: 769px) {
+	.staff__flex-layout:hover .staff__image-container,
+	.staff__flex-layout:focus-within .staff__image-container {
+		opacity: 0.4;
+	}
 
-.staff__flex-layout:hover .staff__image {
-	border-color: #a5a5a5;
+	.staff__flex-layout:hover .staff__image,
+	.staff__flex-layout:focus-within .staff__image {
+		border-color: #a5a5a5;
+	}
 }
 
 .staff__social-link {
@@ -304,6 +419,7 @@
 	top: 50%;
 	left: 50%;
 
+	display: block;
 	width: 96px;
 	height: 96px;
 	margin-left: -48px;
@@ -320,16 +436,55 @@
 	transition: opacity 0.2s ease;
 }
 
-.staff__flex-layout:hover .staff__social-link:hover {
-	opacity: 1;
+/*  на планшетных разрешениях ссылки на соцсети видны перманентно  */
+@media (max-width: 768px) {
+	.staff__social-link {
+		position: static;
+		margin: 0 auto;
+		width: 48px;
+		height: 48px;
+
+		opacity: 1;
+		border: none;
+		border-radius: 0;
+	}
+
+	.staff__social-link:hover{
+		opacity: 0.7;
+	}
+
+	.staff__social-link:active {
+		opacity: 0.4;
+	}
+
+	.staff__social-link:focus {
+		opacity: 0.7;
+		outline: 2px solid #333;
+	}
 }
 
-.staff__flex-layout:hover .staff__social-link:active {
-	opacity: 0.4;
-}
+/*  добавляем интерактивность для ссылки на соцсети в версии для пк  */
+@media (min-width: 769px) {
+	/*  здесь outline не повлияет на доступность с клавиатуры, ссылка хороша видна в фокусе  */
+	.staff__social-link:focus {
+		outline: none;
+	}
 
-.staff__flex-layout:hover .staff__social-link {
-	opacity: 0.7;
+	.staff__flex-layout:hover .staff__social-link:hover {
+		opacity: 1;
+	}
+
+	.staff__flex-layout:hover .staff__social-link:active {
+		opacity: 0.4;
+	}
+
+	.staff__flex-layout:hover .staff__social-link {
+		opacity: 0.7;
+	}
+
+	.staff__flex-layout:focus-within .staff__social-link {
+		opacity: 0.7;
+	}
 }
 
 .staff__name {
@@ -337,7 +492,7 @@
 
 	font-size: 24px;
 	line-height: 30px;
-	color: #2d2d44;
+	color: #333;
 }
 
 .staff__description {
@@ -345,7 +500,7 @@
 
 	font-size: 16px;
 	line-height: 18px;
-	color: #2d2d44;
+	color: #333;
 }
 
 
