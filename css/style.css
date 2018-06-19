@@ -164,7 +164,7 @@ body {
 	padding: 20px 40px;
 }
 
-.navigation__burger {
+.navigation__burger-btn {
 	position: relative;
 	display: block;
 
@@ -173,6 +173,8 @@ body {
 	padding: 0;
 	margin: 0 auto;
 
+	font-size: 0;
+
 	background-color: transparent;
 	border: none;
 	cursor: pointer;
@@ -180,8 +182,8 @@ body {
 	outline: none;
 }
 
-.navigation__burger::before,
-.navigation__burger::after {
+.navigation__burger-btn::before,
+.navigation__burger-btn::after {
 	content: '';
 	position: absolute;
 	left: 0;
@@ -193,10 +195,10 @@ body {
 	transition: transform 0.3s ease, top 0.3s ease 0.3s, background-color 0.3s ease;
 }
 
-.navigation__burger::before {
+.navigation__burger-btn::before {
 	top: 5px;
 }
-.navigation__burger::after {
+.navigation__burger-btn::after {
 	top: 20px;
 }
 
@@ -213,14 +215,13 @@ body {
 	transform: rotate(-45deg);
 }
 
-.navigation__burger:hover::before,
-.navigation__burger:hover::after {
+.navigation__burger-btn:hover::before,
+.navigation__burger-btn:hover::after {
 	background-color: #555;
 }
 
 .navigation__list--burger {
 	display: none;
-	flex-direction: column;
 
 	margin-top: 20px;
 }
@@ -642,7 +643,7 @@ body {
 	width: 1140px;
 	max-width: 100%;
 	margin: 0 auto;
-	margin-bottom: 50px;
+	margin-bottom: 100px;
 	
 	background-color: #fff;
 }
@@ -777,4 +778,71 @@ body {
 
 	width: 100%;
 	height: 100%;
+}
+
+
+/*============================
+	menu
+============================*/
+
+.menu {
+	width: 1140px;
+	max-width: 100%;
+	margin: 0 auto;
+	margin-bottom: 50px;
+	border-top: 3px dotted #333;
+}
+
+.menu__title {
+	position: relative;
+	top: -25px;
+
+	width: 180px;
+	margin: 0 auto;
+	padding: 0;
+
+	font-size: 40px;
+	font-weight: 700;
+	text-transform: uppercase;
+	text-align: center;
+
+	background-color: #fff;
+}
+
+.menu__hookah-list {
+	display: flex;
+	justify-content: space-around;
+
+	margin: 0;
+	margin-bottom: 30px;
+	padding: 0;
+
+	list-style: none;
+}
+
+.menu__hookah-item {
+	position: relative;
+	padding-top: 260px;
+
+	width: 320px;
+
+	text-align: center;
+	font-size: 24px;
+	line-height: 32px;
+	text-transform: uppercase;
+}
+
+.menu__hookah-item::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 15%;
+	display: block;
+
+	width: 70%;
+	height: 240px;
+	box-sizing: border-box;
+
+	border: 5px solid #333;
+	border-radius: 20px;
 }

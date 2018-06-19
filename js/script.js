@@ -47,7 +47,7 @@ burgerBtn.addEventListener('click', (event) => {
 	burgerBtn.classList.toggle('navigation__burger--close');
 	if (!isNavigationVisible) {
 		for (let i = 0; i < navigationItemsArr.length; i++) {
-			navigationList.style = 'display: flex';
+			navigationList.style = 'display: block';
 			setTimeout(() => navigationItemsArr[i].style = 'opacity: 1', 100 * i);
 		}
 		isNavigationVisible = true;
