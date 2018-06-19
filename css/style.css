@@ -7,11 +7,11 @@ body {
 }
 
 .visually-hidden {
-  position: absolute;
-  clip: rect(0 0 0 0);
-  width: 1px;
-  height: 1px;
-  margin: -1px;
+  	position: absolute;
+  	clip: rect(0 0 0 0);
+  	width: 1px;
+  	height: 1px;
+ 	margin: -1px;
 }
 
 
@@ -29,7 +29,8 @@ body {
 
 /*  navigation  */
 .navigation {
-
+	position: relative;
+	background-color: #e5e5e5;
 }
 
 .header__nav {
@@ -45,25 +46,12 @@ body {
 	margin: 0;
 
 	list-style: none;
-	background-color: #e5e5e5;
 }
 
 .navigation__item {
 	box-sizing: border-box;
 
 	background-color: #c5c5c5;
-}
-
-/*  переключаемся на бургерное меню  */
-@media (max-width: 768px) {
-	.navigation__list {
-		flex-direction: column;
-		padding: 48px;
-	}
-	.navigation__item {
-		/*  этот отступ нужен, чтобы мы видели outline каждого элемента навигации в фокусе */
-		margin-bottom: 3px;
-	}
 }
 
 .navigation__link {
@@ -171,7 +159,91 @@ body {
 	}
 }
 
+.navigation--burger {
+	display: none;
+	padding: 20px 40px;
+}
 
+.navigation__burger {
+	position: relative;
+	display: block;
+
+	width: 40px;
+	height: 30px;
+	padding: 0;
+	margin: 0 auto;
+
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+
+	outline: none;
+}
+
+.navigation__burger::before,
+.navigation__burger::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 4px;
+
+	background-color: #333;
+	border-radius: 2px;
+	transition: transform 0.3s ease, top 0.3s ease 0.3s, background-color 0.3s ease;
+}
+
+.navigation__burger::before {
+	top: 5px;
+}
+.navigation__burger::after {
+	top: 20px;
+}
+
+.navigation__burger--close::before,
+.navigation__burger--close::after {
+	top: 13px;
+	transition: top 0.3s ease, transform 0.3s ease 0.3s;
+}
+
+.navigation__burger--close::before {
+	transform: rotate(45deg);
+}
+.navigation__burger--close::after {
+	transform: rotate(-45deg);
+}
+
+.navigation__burger:hover::before,
+.navigation__burger:hover::after {
+	background-color: #555;
+}
+
+.navigation__list--burger {
+	display: none;
+	flex-direction: column;
+
+	margin-top: 20px;
+}
+
+.navigation__item--burger {
+	/*  этот отступ нужен, чтобы мы видели outline каждого элемента навигации в фокусе */
+	margin-bottom: 3px;
+	transition: opacity 0.5s ease;
+	opacity: 0;
+}
+
+/*  переключаемся на бургерное меню  */
+@media (max-width: 768px) {
+	.navigation {
+		display: none;
+	}
+
+	.navigation--burger {
+		display: block;
+	}
+}
+
+	
 /*============================
 	promo-slide
 ============================*/
@@ -597,6 +669,7 @@ body {
 
 .slider__button--disabled {
 	cursor: default;
+	outline: none;
 }
 
 .slider__button::before {
@@ -705,4 +778,3 @@ body {
 	width: 100%;
 	height: 100%;
 }
-
