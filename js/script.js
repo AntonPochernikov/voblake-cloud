@@ -59,3 +59,18 @@ burgerBtn.addEventListener('click', (event) => {
 		isNavigationVisible = false;
 	}
 })
+
+const linkAbout = document.getElementById('navigation__link--about');
+const linkGallery = document.getElementById('navigation__link--gallery');
+const $page = $('html, body');
+
+const links = Array.from(document.getElementsByClassName('navigation__link'))
+
+for (let i = 0; i < links.length; i++) {
+	$(links[i]).click(function() {
+	    $page.animate({
+	        scrollTop: $($.attr(this, 'href')).offset().top
+	    }, 400);
+	    return false;
+	});
+}

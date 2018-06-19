@@ -640,12 +640,30 @@ body {
 .slider {
 	display: flex;
 	align-items: center;
+	position: relative;
+
 	width: 1140px;
 	max-width: 100%;
+	padding-bottom: 150px;
 	margin: 0 auto;
 	margin-bottom: 100px;
 	
 	background-color: #fff;
+}
+
+.slider::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+
+	display: block;
+	margin-left: -50px;
+
+	border: 50px solid #333;
+	border-left-color: transparent;
+	border-right-color: transparent;
+	border-bottom-style: none;
 }
 
 .slider__button {
@@ -695,11 +713,11 @@ body {
 }
 
 .slider__button:hover::before {
-	opacity: 0.7;
+	opacity: 0.8;
 }
 
 .slider__button:active::before {
-	opacity: 0.5;
+	opacity: 0.6;
 }
 
 .slider__button--prev::before {
