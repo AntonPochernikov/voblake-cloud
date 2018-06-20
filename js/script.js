@@ -60,11 +60,10 @@ burgerBtn.addEventListener('click', (event) => {
 	}
 })
 
-const linkAbout = document.getElementById('navigation__link--about');
-const linkGallery = document.getElementById('navigation__link--gallery');
 const $page = $('html, body');
-
-const links = Array.from(document.getElementsByClassName('navigation__link'))
+let links = Array.from(document.getElementsByClassName('navigation__link'));
+const downLinks = Array.from(document.getElementsByClassName('down-button'));
+links = [...links, ...downLinks];
 
 for (let i = 0; i < links.length; i++) {
 	$(links[i]).click(function() {
