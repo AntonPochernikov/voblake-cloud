@@ -60,6 +60,7 @@ burgerBtn.addEventListener('click', (event) => {
 	}
 })
 
+// навигация по якорям
 const $page = $('html, body');
 let links = Array.from(document.getElementsByClassName('navigation__link'));
 const downLinks = Array.from(document.getElementsByClassName('down-button'));
