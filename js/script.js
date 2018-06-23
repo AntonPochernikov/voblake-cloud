@@ -22,6 +22,7 @@ nextSliderBtn.addEventListener('click', (event) => {
 		// sliderImagesArr.push(tempImg);
 	}
 })
+
 prevSliderBtn.addEventListener('click', (event) => {
 	event.preventDefault();
 	if (sliderImageCounter > 0) {
@@ -73,4 +74,23 @@ for (let i = 0; i < links.length; i++) {
 	    }, 400);
 	    return false;
 	});
+}
+
+// переключение интерактивных карт
+const locationButtons = document.getElementsByClassName('location__button');
+const locationMaps = document.getElementsByClassName('location__map');
+let locationBtnArr = Array.from(locationButtons);
+let locationMapsArr = Array.from(locationMaps);
+
+
+for (let i = 0; i < locationBtnArr.length; i++) {
+	locationBtnArr[i].addEventListener('click', function(event) {
+		event.preventDefault();
+		for (let y = 0; y < locationBtnArr.length; y++) {
+			locationBtnArr[y].classList.remove('location__button--active');
+			locationMapsArr[y].classList.remove('location__map--active');
+		}
+		locationBtnArr[i].classList.add('location__button--active');
+		locationMapsArr[i].classList.add('location__map--active');
+	})
 }
