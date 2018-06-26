@@ -436,7 +436,7 @@ body {
 	border-bottom-style: none;
 
 	opacity: 1;
-	transition: opacity 0.2s ease;
+	transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .promo__down-button::before {
@@ -452,6 +452,7 @@ body {
 
 .down-button:active::before {
 	opacity: 0.6;
+	transform: translateY(5px);
 }
 
 .staff__list {
@@ -1294,4 +1295,5 @@ body {
 
 .social__link:active {
 	opacity: 0.8;
+	transform: translateY(3px);
 }
