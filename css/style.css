@@ -944,7 +944,7 @@ body {
 
 .menu__beverages {
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	align-items: center;
 	flex-wrap: wrap;
 
@@ -958,8 +958,8 @@ body {
 }
 
 .beverage--cold {
+	max-width: 50%;
 	text-align: right;
-	white-space: pre-line;
 }
 
 .beverage__title {
@@ -971,7 +971,6 @@ body {
 	font-weight: 700;
 	text-transform: uppercase;
 	font-style: italic;
-	word-wrap: wrap;
 }
 
 .beverage_list {
@@ -990,21 +989,41 @@ body {
 }
 
 @media(max-width: 1139px) {
-	.beverage--title {
-		text-align: center;
-	}
-}
-
-@media(max-width: 768px) {
-	.vip__title {
-		font-size: 120px;
-		line-height: 120px;
-	}
 	.beverage__title {
 		font-size: 64px;
 		line-height: 64px;
 	}
 }
+
+@media(max-width: 768px) {
+	.vip__title {
+		font-size: 100px;
+		line-height: 100px;
+	}
+	.beverage__title {
+		font-size: 48px;
+		line-height: 48px;
+	}
+}
+
+@media(max-width: 480px) {
+	.beverage--cold {
+		max-width: 100%;
+		text-align: center;
+	}
+	.menu__beverages {
+		justify-content: center;
+	}
+	.vip__title {
+		font-size: 64px;
+		line-height: 64px;
+	}
+
+	.beverage__item {
+		font-size: 24px;
+	}
+}
+
 
 .menu__down-button::before {
 	border-color: #c5c5c5;
@@ -1227,6 +1246,12 @@ body {
 
 	background-repeat: no-repeat;
 	background-position: center;
+}
+
+@media(max-width: 480px) {
+	.contacts__info {
+		font-size: 12px;
+	}
 }
 
 .contacts__info--location::before {
