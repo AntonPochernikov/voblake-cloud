@@ -1,9 +1,55 @@
+/*  Подключаем основной шрифт Georgia  */
+@font-face {
+	font-family: 'Georgia';
+	src: url('../fonts/georgia/Georgia-BoldItalic.eot');
+	src: url('../fonts/georgia/Georgia-BoldItalic.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/georgia/Georgia-BoldItalic.woff') format('woff'),
+		url('../fonts/georgia/Georgia-BoldItalic.ttf') format('truetype');
+	font-weight: bold;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Georgia';
+	src: url('../fonts/georgia/Georgia-Italic.eot');
+	src: url('../fonts/georgia/Georgia-Italic.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/georgia/Georgia-Italic.woff') format('woff'),
+		url('../fonts/georgia/Georgia-Italic.ttf') format('truetype');
+	font-weight: normal;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Georgia';
+	src: url('../fonts/georgia/Georgia-Bold.eot');
+	src: url('../fonts/georgia/Georgia-Bold.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/georgia/Georgia-Bold.woff') format('woff'),
+		url('../fonts/georgia/Georgia-Bold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Georgia';
+	src: url('../fonts/georgia/Georgia.eot');
+	src: url('../fonts/georgia/Georgia.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/georgia/Georgia.woff') format('woff'),
+		url('../fonts/georgia/Georgia.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
 body {
 	padding: 0;
 	margin: 0;
 
-	background-color: #fff;
+	font-family: "Georgia", "Arial", sans-serif;
+	font-size: 16px;
+	line-height: 24px;
+	font-weight: 400;
 	color: #333;
+
+	background-color: #fff;
 }
 
 .visually-hidden {
@@ -60,8 +106,9 @@ body {
 	padding: 10px 15px;
 	padding-left: 40px;
 
-	font-weight: 700;
-	font-size: 18px;
+	font-family: "Georgia", "Arial", sans-serif;
+	font-weight: 400;
+	font-size: 20px;
 	line-height: 24px;
 	text-decoration: none;
 	text-transform: uppercase;
@@ -286,8 +333,10 @@ body {
 	margin: 0;
 	display: flex;
 
+	font-family: "Georgia", "Arial", sans-serif;
 	font-size: 44px;
 	line-height: 50px;
+	font-weight: 300;
 
 	color: #f04040;
 
@@ -343,6 +392,8 @@ body {
 	padding: 0;
 	margin: 0;
 
+	font-family: "Georgia", "Arial", sans-serif;
+	font-weight: 700;
 	font-size: 100px;
 	line-height: 100px;
 	text-transform: uppercase;
@@ -371,9 +422,11 @@ body {
 	padding: 0;
 	margin: 0;
 
-	font-size: 32px;
+	font-family: "Georgia", "Arial", sans-serif;
+	font-size: 28px;
+	font-weight: 200;
 	line-height: 36px;
-	letter-spacing: 7px;
+	letter-spacing: 5px;
 	font-style: italic;
 	color: #fffcef;
 }
@@ -597,6 +650,7 @@ body {
 	margin-top: 0;
 	margin-bottom: 20px;
 
+	font-family: "Georgia", "Arial", sans-serif;
 	font-size: 24px;
 	line-height: 30px;
 	color: #333;
@@ -605,6 +659,7 @@ body {
 .staff__description {
 	margin-left: 20px;
 
+	font-family: "Georgia", "Arial", sans-serif;
 	font-size: 16px;
 	line-height: 18px;
 	color: #333;
@@ -842,7 +897,9 @@ body {
 	margin-bottom: 50px;
 	padding: 0;
 
+	font-family: "Georgia", "Arial", sans-serif;
 	font-size: 40px;
+	line-height: 40px;
 	font-weight: 400;
 	text-transform: uppercase;
 	text-align: center;
@@ -904,6 +961,7 @@ body {
 
 	width: 320px;
 
+	font-family: "Georgia", "Arial", sans-serif;
 	text-align: center;
 	font-size: 24px;
 	line-height: 32px;
@@ -938,6 +996,8 @@ body {
 .vip__title {
 	margin: 0;
 	padding: 0;
+
+	font-family: "Georgia", "Arial", sans-serif;
 	font-size: 200px;
 	line-height: 220px;
 	text-transform: uppercase;
@@ -967,8 +1027,9 @@ body {
 	padding: 0;
 	margin: 0;
 
-	font-size: 100px;
-	line-height: 100px;
+	font-family: "Georgia", "Arial", sans-serif;
+	font-size: 90px;
+	line-height: 90px;
 	font-weight: 700;
 	text-transform: uppercase;
 	font-style: italic;
@@ -983,7 +1044,9 @@ body {
 }
 
 .beverage__item {
+	font-family: "Georgia", "Arial", sans-serif;
 	font-size: 32px;
+	line-height: 32px;
 	font-weight: 700;
 	text-transform: uppercase;
 	font-style: italic;
@@ -1050,6 +1113,7 @@ body {
 	padding-left: 20px;
 	margin: 0;
 
+	font-family: "Georgia", "Arial", sans-serif;
 	color: #fffcef;
 	font-size: 40px;
 	line-height: 40px;
@@ -1080,6 +1144,7 @@ body {
 
 	color: #666;
 	font-size: 16px;
+	font-weight: 400;
 	text-align: right;
 	font-style: italic;
 }
@@ -1104,8 +1169,10 @@ body {
 }
 
 .location__title {
+	font-family: "Georgia", "Arial", sans-serif;
 	color: #333;
 	font-size: 40px;
+	line-height: 40px;
 	text-align: center;
 	font-weight: 400;
 	text-transform: uppercase;
@@ -1119,9 +1186,10 @@ body {
 .location__button {
 	padding: 10px 20px;
 
+	font-family: "Georgia", "Arial", sans-serif;
 	color: #fffcef;
 	font-size: 18px;
-	font-weight: 700;
+	font-weight: 400;
 	text-transform: uppercase;
 	letter-spacing: 3px;
 	
@@ -1197,8 +1265,10 @@ body {
 .contacts__title {
 	margin-bottom: 50px;
 
+	font-family: "Georgia", "Arial", sans-serif;
 	color: #333;
 	font-size: 40px;
+	line-height: 40px;
 	text-align: center;
 	font-weight: 400;
 	text-transform: uppercase;
@@ -1230,6 +1300,7 @@ body {
 	margin: 0;
 	margin-bottom: 10px;
 
+	font-family: "Georgia", "Arial", sans-serif;
 	font-size: 20px;
 	line-height: 20px;
 }
