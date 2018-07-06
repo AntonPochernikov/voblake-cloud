@@ -514,6 +514,11 @@ body {
 	transform: translateY(5px);
 }
 
+.down-button:focus {
+	outline: 2px solid #999;
+	outline-offset: 10px;
+}
+
 .staff__list {
 	display: flex;
 	flex-wrap: wrap;
@@ -781,6 +786,10 @@ body {
 	border-color: #c5c5c5;
 }
 
+.slider__button--disabled:focus {
+	outline: none;
+}
+
 .slider__button:hover::before {
 	opacity: 0.8;
 }
@@ -987,11 +996,29 @@ body {
 
 	border: 5px solid #333;
 	border-radius: 20px;
+
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100%;
+}
+
+.hookah-item--bowl::before {
+	background-image: url('../img/bowl.png');
+}
+
+.hookah-item--wto::before {
+	background-image: url('../img/wto.png');
+}
+
+.hookah-item--glass::before {
+	background-image: url('../img/glass.png');
 }
 
 .menu__vip {
 	display: flex;
 	justify-content: space-around;
+	flex-wrap: wrap;
+	align-items: center;
 
 	position: relative;
 
@@ -1009,14 +1036,52 @@ body {
 	text-transform: uppercase;
 }
 
+.vip__joystics {
+	width: 320px;
+	height: 320px;
+
+	background-image: url('../img/ps4.png');
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.vip__vr {
+	width: 320px;
+	height: 320px;
+
+	background-image: url('../img/vr.png');
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
 .menu__beverages {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
 	flex-wrap: wrap;
 
-	padding-bottom: 100px;
+	position: relative;
+
+	padding-bottom: 260px;
 	margin-bottom: 50px;
+}
+
+.menu__beverages::before {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+
+	display: block;
+	width: 100%;
+	height: 240px;
+
+	background-image: url('../img/beverages.png');
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 .beverage--hot {
@@ -1065,14 +1130,22 @@ body {
 	}
 }
 
+@media(max-width: 960px) {
+	.beverage__title {
+		font-size: 48px;
+		line-height: 48px;
+	}
+}
+
 @media(max-width: 768px) {
 	.vip__title {
 		font-size: 100px;
 		line-height: 100px;
 	}
-	.beverage__title {
-		font-size: 48px;
-		line-height: 48px;
+	.vip__joystics,
+	.vip__vr {
+		width: 240px;
+		height: 240px;
 	}
 }
 
