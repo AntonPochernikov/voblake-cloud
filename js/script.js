@@ -1,96 +1,75 @@
 // слайдер
-const prevSliderBtn = document.querySelector('.slider__button--prev');
-const nextSliderBtn = document.querySelector('.slider__button--next');
-const sliderWrapper = document.querySelector('.slider__inner-wrapper');
-const sliderImages = document.getElementsByClassName('slider__item');
+const prevSliderBtn = document.querySelector('.slider__button--prev'),
+			nextSliderBtn = document.querySelector('.slider__button--next'),
+			sliderWrapper = document.querySelector('.slider__inner-wrapper'),
+			sliderImages = Array.from(document.getElementsByClassName('slider__item'));
+let sliderImgCounter = 0;
 
-let sliderImagesArr = Array.from(sliderImages);
-let sliderImageCounter = 0;
+const transformFunc = counter => sliderWrapper.style.transform = `translateX(-${counter * 100}%)`;
 
-transformFunc = (counter) => sliderWrapper.style.transform = `translateX(-${counter * 100}%)`;
-transformFunc(sliderImageCounter);
-
-nextSliderBtn.addEventListener('click', (event) => {
+nextSliderBtn.addEventListener('click', event => {
 	event.preventDefault();
-	if (sliderImageCounter < sliderImagesArr.length - 1) {
-		sliderImageCounter++;
-		transformFunc(sliderImageCounter);
+	if (sliderImgCounter < sliderImages.length - 1) {
+		sliderImgCounter++;
+		transformFunc(sliderImgCounter);
 		prevSliderBtn.classList.remove('slider__button--disabled');
-		sliderImageCounter < sliderImagesArr.length - 1 ? '' : nextSliderBtn.classList.add('slider__button--disabled');
-	} else {
-		// let tempImg = sliderImagesArr.shift();
-		// sliderImagesArr.push(tempImg);
+		if (!(sliderImgCounter < sliderImages.length - 1)) nextSliderBtn.classList.add('slider__button--disabled');
 	}
-})
+});
 
-prevSliderBtn.addEventListener('click', (event) => {
+prevSliderBtn.addEventListener('click', event => {
 	event.preventDefault();
-	if (sliderImageCounter > 0) {
-		sliderImageCounter--;
-		transformFunc(sliderImageCounter);
-		sliderImageCounter ? '' : prevSliderBtn.classList.add('slider__button--disabled');
-		sliderImageCounter < sliderImagesArr.length - 1 ? nextSliderBtn.classList.remove('slider__button--disabled') : '';
-	} else {
-		// let tempImg = sliderImagesArr.shift();
-		// sliderImagesArr.push(tempImg);
+	if (sliderImgCounter > 0) {
+		sliderImgCounter--;
+		transformFunc(sliderImgCounter);
+		if (sliderImgCounter === 0) prevSliderBtn.classList.add('slider__button--disabled');
+		if (sliderImgCounter < sliderImages.length - 1) nextSliderBtn.classList.remove('slider__button--disabled');
 	}
-})
+});
 
-// навигация(бургер)
-const navigationItems = document.getElementsByClassName('navigation__item--burger');
-const navigationList = document.getElementById('navigation__list--burger');
-const burgerBtn = document.getElementById('navigation__burger');
-let navigationItemsArr = Array.from(navigationItems);
-let isNavigationVisible = false;
 
-burgerBtn.addEventListener('click', (event) => {
+// отображение бургер навигации
+const navigationItems = Array.from(document.getElementsByClassName('navigation__item--burger')),
+			navigationList = document.getElementById('navigation__list--burger'),
+			burgerBtn = document.getElementById('navigation__burger');
+let isNavVisible = false;
+
+burgerBtn.addEventListener('click', event => {
 	event.preventDefault;
 	burgerBtn.classList.toggle('navigation__burger--close');
-	if (!isNavigationVisible) {
-		for (let i = 0; i < navigationItemsArr.length; i++) {
-			navigationList.style = 'display: block';
-			setTimeout(() => navigationItemsArr[i].style = 'opacity: 1', 100 * i);
-		}
-		isNavigationVisible = true;
+	isNavVisible = !isNavVisible;
+	if (isNavVisible) {
+		navigationList.style = 'display: block';
+		navigationItems.forEach((item, i) => setTimeout(() => item.style = 'opacity: 1', 100 * i));
 	} else {
-		for (let i = navigationItemsArr.length - 1; i >= 0; i--) {
-			setTimeout(() => navigationItemsArr[i].style = 'opacity: 0', 100 * (navigationItemsArr.length - 1 - i));
-			setTimeout(() => navigationList.style = 'display: none', 100 * (navigationItems.length + 1));
-		}
-		isNavigationVisible = false;
+		setTimeout(() => navigationList.style = 'display: none', 100 * (navigationItems.length + 1));
+		navigationItems.forEach((item, i) => setTimeout(() => item.style = 'opacity: 0', 100 * (navigationItems.length - 1 - i)));
 	}
 })
 
-// навигация по якорям
-const $page = $('html, body');
-let links = Array.from(document.getElementsByClassName('navigation__link'));
-const downLinks = Array.from(document.getElementsByClassName('down-button'));
-links = [...links, ...downLinks];
 
-for (let i = 0; i < links.length; i++) {
-	$(links[i]).click(function() {
-	    $page.animate({
-	        scrollTop: $($.attr(this, 'href')).offset().top
-	    }, 400);
-	    return false;
-	});
-}
+// навигация по якорям
+const $page = $('html, body'),
+			downBtns = Array.from(document.getElementsByClassName('down-button')),
+			navLinks = Array.from(document.getElementsByClassName('navigation__link')),
+			links = [...navLinks, ...downBtns];
+
+links.forEach(link => 
+	$(link).click(() => 
+		$page.animate({scrollTop: $($.attr(link, 'href')).offset().top}, 400)));
+
 
 // переключение интерактивных карт
-const locationButtons = document.getElementsByClassName('location__button');
-const locationMaps = document.getElementsByClassName('location__map');
-let locationBtnArr = Array.from(locationButtons);
-let locationMapsArr = Array.from(locationMaps);
+const locationBtns = Array.from(document.getElementsByClassName('location__button')),
+			locationMaps = Array.from(document.getElementsByClassName('location__map'));
 
-
-for (let i = 0; i < locationBtnArr.length; i++) {
-	locationBtnArr[i].addEventListener('click', function(event) {
+locationBtns.forEach((btn, i) => btn.addEventListener('click', event => {
 		event.preventDefault();
-		for (let y = 0; y < locationBtnArr.length; y++) {
-			locationBtnArr[y].classList.remove('location__button--active');
-			locationMapsArr[y].classList.remove('location__map--active');
-		}
-		locationBtnArr[i].classList.add('location__button--active');
-		locationMapsArr[i].classList.add('location__map--active');
+		locationMaps.forEach((map, y) => {
+			locationBtns[y].classList.remove('location__button--active');
+			map.classList.remove('location__map--active');
+		});
+		btn.classList.add('location__button--active');
+		locationMaps[i].classList.add('location__map--active');
 	})
-}
+);
